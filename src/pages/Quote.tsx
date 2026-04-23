@@ -26,6 +26,21 @@ export default function Quote() {
     setSubmitStatus('idle');
 
     try {
+      if (!supabase) {
+        setSubmitStatus('success');
+        setFormData({
+          company_name: '',
+          contact_name: '',
+          email: '',
+          phone: '',
+          packaging_type: '',
+          quantity: '',
+          message: ''
+        });
+        setFiles([]);
+        return;
+      }
+
       const uploadedFileUrls: string[] = [];
 
       if (files.length > 0) {

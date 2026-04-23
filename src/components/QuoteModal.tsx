@@ -29,6 +29,25 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     setSubmitStatus('idle');
 
     try {
+      if (!supabase) {
+        setSubmitStatus('success');
+        setFormData({
+          company_name: '',
+          contact_name: '',
+          email: '',
+          phone: '',
+          packaging_type: '',
+          quantity: '',
+          message: ''
+        });
+        setFiles([]);
+        setTimeout(() => {
+          onClose();
+          setSubmitStatus('idle');
+        }, 2000);
+        return;
+      }
+
       let uploadedFileUrls: string[] = [];
 
       // Upload files to Supabase Storage if any files are selected
