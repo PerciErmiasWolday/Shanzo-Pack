@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  /* Keep form controls at a comfortable default height across pages. */
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    font-size: 0.95rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 300ms ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 300ms ease-out 100ms forwards;
+  }
+
+  .transition-premium {
+    @apply transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)];
+  }
+
+  .hover-lift {
+    @apply hover:-translate-y-1 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-premium;
+  }
+
+  .active-press {
+    @apply active:scale-[0.96] transition-premium;
+  }
+}
