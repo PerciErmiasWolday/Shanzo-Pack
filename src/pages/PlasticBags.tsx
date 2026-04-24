@@ -35,7 +35,7 @@ export default function PlasticBags() {
       <div className="pt-20">
 
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div className="flex justify-center mb-8">
             <div className="w-24 h-24 bg-gradient-to-br from-gray-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-2xl">
               <ShoppingBag className="h-12 w-12 text-white" />
@@ -60,7 +60,7 @@ export default function PlasticBags() {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Product </span>
@@ -229,7 +229,7 @@ export default function PlasticBags() {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="layout-site text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Order?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Get a custom quote for your plastic bag needs. We offer competitive pricing for bulk orders.

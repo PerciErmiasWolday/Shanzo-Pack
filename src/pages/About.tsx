@@ -10,7 +10,7 @@ export default function About() {
       <div className="pt-20">
         {/* Hero */}
         <section className="bg-[#0F4C81] text-white min-h-[220px] py-12 md:py-14 flex items-center">
-          <div className="max-w-[1080px] mx-auto px-4 sm:px-6 w-full">
+          <div className="layout-site w-full">
             <h1 className="text-[26px] md:text-4xl font-medium mb-2">
               About Shanzo Pack
             </h1>
@@ -23,7 +23,7 @@ export default function About() {
 
         {/* Mission + image + stats */}
         <section className="py-12 bg-white">
-          <div className="max-w-[1280px] mx-auto px-4 md:px-12">
+          <div className="layout-site">
             <div className="grid gap-8 lg:grid-cols-2 items-stretch mb-6">
               <div className="flex flex-col">
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#2A2A2A] mb-6">
@@ -74,7 +74,7 @@ export default function About() {
 
         {/* Industries We Serve */}
         <section className="py-12 bg-white">
-          <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="layout-site">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-4xl font-semibold text-[#2A2A2A] mb-3">
                 Industries We Serve
@@ -119,7 +119,7 @@ export default function About() {
 
         {/* Our Commitment to Sustainability */}
         <section className="bg-[#0F4C81] min-h-[386px] flex items-center">
-          <div className="max-w-[1280px] mx-auto px-4 md:px-12 w-full">
+          <div className="layout-site w-full">
             <div className="max-w-[760px] mx-auto text-center text-white">
               <div className="w-14 h-14 mx-auto mb-5 rounded-full border border-blue-200/70 flex items-center justify-center">
                 <Leaf className="w-7 h-7 text-blue-100" />

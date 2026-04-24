@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Shared horizontal gutters — use layout-site / layout-site-wide on page shells */
+@layer components {
+  .site-px {
+    @apply px-5 sm:px-8 lg:px-10 xl:px-14;
+  }
+
+  .layout-site {
+    @apply mx-auto w-full max-w-site site-px;
+  }
+
+  .layout-site-wide {
+    @apply mx-auto w-full max-w-site-wide site-px;
+  }
+}
+
 @layer base {
   html {
     font-size: 16px;
@@ -65,5 +80,87 @@
 
   .active-press {
     @apply active:scale-[0.96] transition-premium;
+  }
+
+  /* Home page entrance — no video; respects prefers-reduced-motion */
+  @keyframes home-hero-line {
+    from {
+      opacity: 0;
+      transform: translateY(1.15rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes home-hero-soft {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .home-entrance-root {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-entrance-root.home-entrance-root--on {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home-entrance-root--on .home-hero-line {
+      animation: home-hero-line 0.78s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+
+    .home-entrance-root--on .home-hero-line:nth-child(1) {
+      animation-delay: 0.06s;
+    }
+
+    .home-entrance-root--on .home-hero-line:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .home-entrance-root--on .home-hero-line:nth-child(3) {
+      animation-delay: 0.18s;
+    }
+
+    .home-entrance-root--on .home-hero-line:nth-child(4) {
+      animation-delay: 0.24s;
+    }
+
+    .home-entrance-root--on .home-hero-sub {
+      animation: home-hero-soft 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.32s backwards;
+    }
+
+    .home-entrance-root--on .home-hero-ctas {
+      animation: home-hero-soft 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.44s backwards;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-entrance-root {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .home-hero-line,
+    .home-hero-sub,
+    .home-hero-ctas {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
   }
 }

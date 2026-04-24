@@ -22,7 +22,7 @@ export default function PaperStraws() {
         <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-green-800 to-green-900">
           <div className="absolute inset-0 bg-[url('/image.png')] bg-cover bg-center opacity-20"></div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative z-10 layout-site text-center">
             <div className="inline-block px-4 py-2 bg-green-600 text-white text-sm font-bold rounded-full shadow-lg mb-6">
               Manufactured by Shanzo Pack
             </div>
@@ -51,7 +51,7 @@ export default function PaperStraws() {
         </section>
 
         <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="layout-site">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4">
                 <span className="text-gray-900">Product </span>
@@ -195,7 +195,7 @@ export default function PaperStraws() {
         </section>
 
         <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="layout-site text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Go Green?</h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Get a custom quote for your paper straw needs. Join us in making a positive environmental impact.

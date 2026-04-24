@@ -65,7 +65,7 @@ export default function ProductDetail() {
       <Header />
       <main className="pt-20 flex-1 bg-[#F3F3F3]">
         <section className="bg-[#0F4C81] text-white pt-8 pb-10 border-b border-[#0d4372]">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             <Link
               to={backHref}
               className="inline-flex items-center gap-2 text-sm font-medium text-blue-100 hover:text-white transition-colors duration-200 mb-6 group/back"
@@ -80,7 +80,7 @@ export default function ProductDetail() {
         </section>
 
         <section className="py-12">
-          <div className="max-w-[1280px] mx-auto px-6 grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
+          <div className="layout-site grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
             <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden p-8 shadow-sm group">
               <div className="aspect-square max-h-[560px] mx-auto bg-[#fafafa] rounded-xl flex items-center justify-center p-6 border border-gray-100 transition duration-500 group-hover:bg-[#f0f5f0]">
                 <img

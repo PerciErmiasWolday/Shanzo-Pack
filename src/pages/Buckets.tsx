@@ -24,7 +24,7 @@ export default function Buckets() {
 
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-500 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -56,7 +56,7 @@ export default function Buckets() {
 
       {/* Products Grid */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Available </span>

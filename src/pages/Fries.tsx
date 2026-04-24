@@ -37,7 +37,7 @@ export default function Fries() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 to-blue-500">
         <div className="absolute inset-0 bg-[url('/image.png')] bg-cover bg-center opacity-20"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 layout-site text-center">
 
           <div className="flex justify-center mb-8">
             <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-400 rounded-2xl flex items-center justify-center shadow-2xl">
@@ -63,7 +63,7 @@ export default function Fries() {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Product </span>
@@ -148,7 +148,7 @@ export default function Fries() {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Design </span>
@@ -196,7 +196,7 @@ export default function Fries() {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Custom </span>
@@ -242,7 +242,7 @@ export default function Fries() {
       </section>
 
       <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-500">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="mx-auto w-full max-w-4xl site-px text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Elevate Your Fries Packaging?
           </h2>

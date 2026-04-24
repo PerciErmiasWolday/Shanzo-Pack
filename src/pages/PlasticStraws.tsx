@@ -149,7 +149,7 @@ export default function PlasticStraws() {
         />
 
         <div
-          className="relative z-10 max-w-5xl mx-auto px-4 text-center transition-all duration-700"
+          className="relative z-10 max-w-5xl mx-auto w-full site-px text-center transition-all duration-700"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(20px)'
@@ -176,7 +176,7 @@ export default function PlasticStraws() {
       </section>
 
       <section className="py-20 bg-white" data-section="0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="layout-site">
           <div
             className="text-center mb-16 transition-all duration-700"
             style={{
@@ -326,7 +326,7 @@ export default function PlasticStraws() {
       </section>
 
       <section className="py-32 bg-white relative" data-section="1">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto w-full site-px">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {timeline.map((stage, index) => (
               <div
@@ -350,7 +350,7 @@ export default function PlasticStraws() {
       </section>
 
       <section className="py-32 bg-gradient-to-b from-white to-[#f8fbff] relative overflow-hidden" data-section="2">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto w-full site-px">
           <div className="flex flex-col md:flex-row gap-8 items-stretch justify-center">
             <div
               className="flex-1 transition-all duration-500 ease-out hover:scale-105"
@@ -383,7 +383,7 @@ export default function PlasticStraws() {
       </section>
 
       <section className="py-32 bg-gradient-to-b from-white to-[#f8fbff] relative" data-section="3">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto w-full site-px">
           <h2 className="text-5xl font-bold text-center text-gray-900 mb-16">Certifications & Standards</h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {certifications.map((cert, index) => (
@@ -407,7 +407,7 @@ export default function PlasticStraws() {
       </section>
 
       <section className="py-32 bg-white relative" data-section="4">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto w-full site-px">
           <h2 className="text-5xl font-bold text-center text-gray-900 mb-16">Business Benefits</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {benefits.map((benefit, index) => (
@@ -431,7 +431,7 @@ export default function PlasticStraws() {
       </section>
 
       <section className="py-32 bg-gradient-to-b from-white to-[#f8fbff] relative" data-section="5">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto w-full site-px">
           <h2 className="text-5xl font-bold text-center text-gray-900 mb-12">Quote Estimator</h2>
 
           <div
@@ -570,7 +570,7 @@ export default function PlasticStraws() {
       </section>
 
       <section className="py-32 bg-white relative" data-section="6">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto w-full site-px">
           <h2 className="text-5xl font-bold text-center text-gray-900 mb-16">What Our Customers Say</h2>
           <div className="space-y-12">
             {testimonials.map((testimonial, index) => (
@@ -594,7 +594,7 @@ export default function PlasticStraws() {
 
       <section className="relative py-40 overflow-hidden" data-section="7">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-white" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto w-full site-px text-center">
           <h2
             className="text-5xl md:text-7xl font-bold text-white leading-relaxed transition-all duration-700 px-4"
             style={{

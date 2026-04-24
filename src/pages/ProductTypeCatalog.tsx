@@ -102,7 +102,7 @@ export default function ProductTypeCatalog() {
       <Header />
       <main className="pt-20 flex-1 bg-[#F3F3F3]">
         <section className="bg-[#0F4C81] text-white py-7 border-b border-[#0d4372]">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             <h1 className="text-[34px] leading-none font-medium mb-2">{pageTitle}</h1>
             <p className="text-sm text-blue-100">
               Filter by attributes or expand each card for full specifications.
@@ -120,7 +120,7 @@ export default function ProductTypeCatalog() {
         </section>
 
         <section className="py-8">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             {!isStraws && !isBags && !isCutlery ? (
               <div className="bg-white border border-gray-200 rounded p-6 text-sm text-gray-700">
                 Sub-filters for `{type}` will be added next.

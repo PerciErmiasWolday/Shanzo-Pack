@@ -42,7 +42,7 @@ export default function Resources() {
       <main className="pt-20 flex-1 bg-[#F3F3F3]">
         {/* Hero */}
         <section className="py-9 bg-[#0F4C81] border-b border-[#0d4372]">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             <h1 className="text-4xl font-medium text-white mb-2">
               Resources
             </h1>
@@ -55,7 +55,7 @@ export default function Resources() {
 
         {/* Downloadable Catalogs */}
         <section className="py-10 bg-[#F3F3F3]">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             <h2 className="text-[36px] font-semibold text-[#2A2A2A] mb-6">
               Downloadable Catalogs
             </h2>
@@ -117,7 +117,7 @@ export default function Resources() {
 
         {/* FAQs */}
         <section className="py-8 bg-[#F3F3F3] border-t border-gray-200">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             <div className="flex items-center gap-3 mb-5">
               <HelpCircle className="h-5 w-5 text-[#0F4C81]" />
               <h2 className="text-[32px] font-semibold text-[#2A2A2A]">

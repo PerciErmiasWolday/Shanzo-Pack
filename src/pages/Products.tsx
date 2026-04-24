@@ -104,7 +104,7 @@ export default function Products() {
       <main className="pt-20 flex-1 bg-[#F3F3F3]">
         {/* Header bar */}
         <section className="bg-[#0F4C81] text-white py-7 border-b border-[#0d4372]">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             <h1 className="text-[34px] leading-none font-medium mb-2">All Products</h1>
             <p className="text-sm text-blue-100 max-w-xl">
               Browse our selection of packaging solutions.
@@ -114,7 +114,7 @@ export default function Products() {
 
         {/* Filters + product grid */}
         <section className="py-8">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <div className="layout-site">
             <div className="grid gap-9 lg:grid-cols-[240px,minmax(0,1fr)] items-start">
               {/* Filters */}
               <aside className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm sticky top-[110px] self-start">

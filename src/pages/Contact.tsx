@@ -29,7 +29,7 @@ export default function Contact() {
 
       <div className="pt-20 flex-1">
         <section className="relative py-10 bg-[#0F4C81] border-b border-[#0d4372]">
-          <div className="max-w-[1080px] mx-auto px-4 sm:px-6 text-center">
+          <div className="layout-site text-center">
             <h1 className="text-4xl md:text-5xl font-semibold text-white mb-3">
               Contact <span className="text-white">Us</span>
             </h1>
@@ -40,7 +40,7 @@ export default function Contact() {
         </section>
 
         <section className="py-12 bg-white">
-          <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="layout-site">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-semibold text-[#2A2A2A] mb-5">

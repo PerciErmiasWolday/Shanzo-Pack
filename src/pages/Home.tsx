@@ -2,10 +2,8 @@ import { ArrowRight, ShieldCheck, Leaf, Factory, Timer, CheckCircle2, Recycle, S
 import { Link } from 'react-router-dom';
 import QuoteModal from '../components/QuoteModal';
 import Header from '../components/Header';
-import LogoAnimation from '../components/LogoAnimation';
 import Footer from '../components/Footer';
-import { useState, useEffect, useRef } from 'react';
-import loadingVideo from '../loading.MP4';
+import { useState, useEffect } from 'react';
 
 const heroSlides = [
   { src: '/hero/slide-1.png', alt: 'Hero slide 1' },
@@ -15,17 +13,17 @@ const heroSlides = [
 
 export default function Home() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-  const [animationComplete, setAnimationComplete] = useState(false);
-  const [showLoadingVideo, setShowLoadingVideo] = useState(() => {
-    try {
-      return sessionStorage.getItem('homeIntroPlayed') !== '1';
-    } catch {
-      return true;
-    }
-  });
-  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [heroSlide, setHeroSlide] = useState(0);
+  const [homeEntered, setHomeEntered] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setHomeEntered(true);
+      return;
+    }
+    const id = window.requestAnimationFrame(() => setHomeEntered(true));
+    return () => window.cancelAnimationFrame(id);
+  }, []);
 
   useEffect(() => {
     const id = window.setInterval(
@@ -35,65 +33,11 @@ export default function Home() {
     return () => window.clearInterval(id);
   }, []);
 
-  const handleAnimationComplete = () => {
-    setAnimationComplete(true);
-    setTimeout(() => setShowContent(true), 100);
-  };
-
   return (
-    <div className="min-h-screen bg-white">
-      {showLoadingVideo && (
-        <div className="fixed inset-0 z-[120] bg-white flex items-center justify-center">
-          <video
-            ref={videoRef}
-            src={loadingVideo}
-            autoPlay
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            onEnded={() => {
-              try {
-                sessionStorage.setItem('homeIntroPlayed', '1');
-              } catch {
-                // ignore
-              }
-              setShowLoadingVideo(false);
-            }}
-            onError={() => {
-              try {
-                sessionStorage.setItem('homeIntroPlayed', '1');
-              } catch {
-                // ignore
-              }
-              setShowLoadingVideo(false);
-            }}
-            onLoadedMetadata={() => {
-              const v = videoRef.current;
-              if (!v) return;
-
-              // Start from 3 seconds and play until the actual end.
-              v.currentTime = Math.max(0, 3);
-              const p = v.play();
-              if (p && typeof (p as Promise<void>).catch === 'function') {
-                (p as Promise<void>).catch(() => {
-                  try {
-                    sessionStorage.setItem('homeIntroPlayed', '1');
-                  } catch {
-                    // ignore
-                  }
-                  setShowLoadingVideo(false);
-                });
-              }
-            }}
-          />
-        </div>
-      )}
-
-      {!animationComplete && !showLoadingVideo && (
-        <LogoAnimation onAnimationComplete={handleAnimationComplete} />
-      )}
-
-      <div className={`transition-opacity duration-700 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+    <div
+      className={`min-h-screen bg-white home-entrance-root${homeEntered ? ' home-entrance-root--on' : ''}`}
+    >
+      <div>
         <Header />
 
       {/* Hero Section — image carousel */}
@@ -146,21 +90,21 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="relative z-10 max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6 w-full">
+        <div className="relative z-10 layout-site-wide">
           <div className="grid lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-10 items-center">
             <div className="text-white max-w-2xl py-8">
               <h1 className="text-4xl sm:text-5xl md:text-[3rem] leading-snug md:leading-[1.3] font-bold mb-8">
-                <span className="block">Everything Your Business</span>
-                <span className="block mt-1">Needs</span>
-                <span className="block mt-3">From Packaging to</span>
-                <span className="block">Essential Supplies.</span>
+                <span className="block home-hero-line">Everything Your Business</span>
+                <span className="block mt-1 home-hero-line">Needs</span>
+                <span className="block mt-3 home-hero-line">From Packaging to</span>
+                <span className="block home-hero-line">Essential Supplies.</span>
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-blue-100 mb-8 leading-relaxed max-w-lg">
+              <p className="home-hero-sub text-sm sm:text-base md:text-lg text-blue-100 mb-8 leading-relaxed max-w-lg">
                 Certified biodegradable and compostable packaging solutions. From stock
                 products to custom OEM manufacturing at scale.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="home-hero-ctas flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/products"
                   className="inline-flex items-center justify-center px-8 h-14 rounded-xl text-base font-medium bg-[#0F4C81] text-white hover:bg-[#0b3961] shadow-md hover:shadow-xl hover:-translate-y-1 active:scale-[0.96] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
@@ -182,7 +126,7 @@ export default function Home() {
 
       {/* Stats / Certifications Strip */}
       <section className="border-b border-[#E5E5E0] bg-white">
-        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6 py-12">
+        <div className="layout-site-wide py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full border border-[#E5E5E0] flex items-center justify-center bg-white">
@@ -229,7 +173,7 @@ export default function Home() {
 
       {/* Featured Products Section */}
       <section id="products" className="py-16 bg-[#F3F3F3]">
-        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6">
+        <div className="layout-site-wide">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-semibold text-[#2A2A2A] mb-3">
               Featured Products
@@ -245,29 +189,29 @@ export default function Home() {
             <div className="bg-white rounded-xl border border-[#D9D9D9] overflow-hidden flex flex-col hover-lift">
               <div className="h-[235px]">
                 <img
-                  src="/featured-products/c544da36b245fb10f136e3c7f9520a828bad7d14.jpg"
-                  alt="Compostable Food Containers"
+                  src="/straws/artistic-straw.png"
+                  alt="Artistic Straws"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-5 flex-1 flex flex-col">
                 <div className="flex flex-wrap gap-2 mb-3 text-[10px]">
                   <span className="px-2 py-0.5 rounded bg-blue-50 text-[#0F4C81] font-semibold">
-                    BPI Certified
+                    Food Grade
                   </span>
                   <span className="px-2 py-0.5 rounded bg-blue-50 text-[#0F4C81] font-semibold">
-                    FDA Approved
+                    Custom Colors
                   </span>
                 </div>
                 <h3 className="text-[18px] font-semibold text-[#2A2A2A] leading-tight mb-2">
-                  Compostable
+                  Artistic
                   <br />
-                  Food Containers
+                  Straws
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 flex-1 leading-relaxed">
-                  Premium sugarcane fiber containers, available in multiple sizes.
+                  Decorative straws for cafes, events, and premium beverage presentation.
                 </p>
-                <p className="text-[13px] text-gray-500 mb-5">MOQ: 1,000 units</p>
+                <p className="text-[13px] text-gray-500 mb-5">MOQ: per specification</p>
                 <button type="button" className="w-full h-11 border border-[#8CA3BF] rounded text-sm font-medium text-[#0F4C81] hover:bg-gray-50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-200 ease-out">
                   View Details
                 </button>
@@ -278,29 +222,29 @@ export default function Home() {
             <div className="bg-white rounded-xl border border-[#D9D9D9] overflow-hidden flex flex-col hover-lift">
               <div className="h-[235px]">
                 <img
-                  src="/featured-products/aec2c2b6ebf6a558573ea647b74136f65f090b5e.jpg"
-                  alt="Biodegradable Takeout Boxes"
+                  src="/straws/flexible-bend-straw.png"
+                  alt="Flexible Bend Straws"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-5 flex-1 flex flex-col">
                 <div className="flex flex-wrap gap-2 mb-3 text-[10px]">
                   <span className="px-2 py-0.5 rounded bg-blue-50 text-[#0F4C81] font-semibold">
-                    Compostable
+                    Flexible
                   </span>
                   <span className="px-2 py-0.5 rounded bg-blue-50 text-[#0F4C81] font-semibold">
-                    ASTM D6400
+                    Food Grade
                   </span>
                 </div>
                 <h3 className="text-[18px] font-semibold text-[#2A2A2A] leading-tight mb-2">
-                  Biodegradable
+                  Flexible Bend
                   <br />
-                  Takeout Boxes
+                  Straws
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 flex-1 leading-relaxed">
-                  Durable PLA-lined kraft boxes for hot and cold foods.
+                  Corrugated bend section for easy angled sipping in hot and cold drinks.
                 </p>
-                <p className="text-[13px] text-gray-500 mb-5">MOQ: 2,500 units</p>
+                <p className="text-[13px] text-gray-500 mb-5">MOQ: per specification</p>
                 <button type="button" className="w-full h-11 border border-[#8CA3BF] rounded text-sm font-medium text-[#0F4C81] hover:bg-gray-50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-200 ease-out">
                   View Details
                 </button>
@@ -311,27 +255,27 @@ export default function Home() {
             <div className="bg-white rounded-xl border border-[#D9D9D9] overflow-hidden flex flex-col hover-lift">
               <div className="h-[235px]">
                 <img
-                  src="/featured-products/06573c6850f845568b8e0dee77f6423d48391c43.jpg"
-                  alt="Eco-Friendly Mailers"
+                  src="/straws/bubble-t-straw.png"
+                  alt="Bubble Tea Straws"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-5 flex-1 flex flex-col">
                 <div className="flex flex-wrap gap-2 mb-3 text-[10px]">
                   <span className="px-2 py-0.5 rounded bg-blue-50 text-[#0F4C81] font-semibold">
-                    Recyclable
+                    Wide Diameter
                   </span>
                   <span className="px-2 py-0.5 rounded bg-blue-50 text-[#0F4C81] font-semibold">
-                    FSC Certified
+                    Bubble Tea
                   </span>
                 </div>
                 <h3 className="text-[18px] font-semibold text-[#2A2A2A] leading-tight mb-2">
-                  Eco-Friendly Mailers
+                  Bubble Tea Straws
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 flex-1 leading-relaxed">
-                  Sustainable kraft paper mailers with tear-resistant design.
+                  Thick-wall, wide straws designed for tapioca pearls and smoothie beverages.
                 </p>
-                <p className="text-[13px] text-gray-500 mb-5">MOQ: 5,000 units</p>
+                <p className="text-[13px] text-gray-500 mb-5">MOQ: per specification</p>
                 <button type="button" className="w-full h-11 border border-[#8CA3BF] rounded text-sm font-medium text-[#0F4C81] hover:bg-gray-50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-200 ease-out">
                   View Details
                 </button>
@@ -353,7 +297,7 @@ export default function Home() {
 
       {/* Custom Packaging Manufacturing Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6">
+        <div className="layout-site-wide">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-semibold text-[#2A2A2A] mb-4">
@@ -427,7 +371,7 @@ export default function Home() {
 
       {/* Why Biodegradable Packaging Section */}
       <section className="py-16 md:min-h-[543px] bg-[#647E94] flex items-center">
-        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6">
+        <div className="layout-site-wide">
           <div className="text-center text-white mb-10">
             <h2 className="text-3xl md:text-4xl font-semibold mb-3">
               Why Biodegradable Packaging?
@@ -495,7 +439,7 @@ export default function Home() {
       {/* Partners Section */}
       {/* Industries We Serve */}
       <section className="py-20 bg-[#5D7F9D]">
-        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6">
+        <div className="layout-site-wide">
           <div className="text-center text-white mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold mb-3">
               Industries We Serve
@@ -559,7 +503,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-16 bg-[#0F4C81]">
-        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6">
+        <div className="layout-site-wide">
           <div className="grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] items-center">
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold text-white mb-3">

@@ -1,12 +1,15 @@
 const IMG = {
-  paperWrappedStraws:
-    'https://merchants.pk/wp-content/uploads/2025/12/PAPER-WRAPPED-STRAWS-600x600.png',
-  shakesSmoothiesStraws:
-    'https://merchants.pk/wp-content/uploads/2025/11/SHAKES-SMOOTHIES-STRAWS-6MM-8MM-10MM-600x600.png',
-  tetraUShape:
-    'https://merchants.pk/wp-content/uploads/2025/11/TETRA-PACK-U-SHAPE-STRAWS-2-600x600.png',
-  plasticBiodegradableStraws:
-    'https://merchants.pk/wp-content/uploads/2025/12/FLEXIBLE-STRAWS-6MM-600x600.png',
+  artisticStraw: '/straws/artistic-straw.png',
+  spoonStraw: '/straws/Spoon-Straw.png',
+  paperStraw: '/straws/paper-straw.png',
+  paperWrappedStraw: '/straws/paper-straw.png',
+  oppWrappedStraw: '/straws/oop-staw rapped.png',
+  tetraUShapePaperStraw: '/straws/tera-pack-u.png',
+  straightStraw: '/straws/straight-straw.png',
+  flexibleStraw: '/straws/flexible-straw.png',
+  flexibleBendStraw: '/straws/flexible-bend-straw.png',
+  stirSipperStraw: '/straws/stri-slipper.png',
+  bubbleTeaStraw: '/straws/bubble-t-straw.png',
   tShirtBag: 'https://merchants.pk/wp-content/uploads/2025/12/t-shirt-bag-600x600.png',
   foodBags: 'https://merchants.pk/wp-content/uploads/2025/11/FOOD-BAGS-600x600.png',
   garbageBags: 'https://merchants.pk/wp-content/uploads/2025/11/GARBAGE-BAGS-600x600.png',
@@ -54,80 +57,190 @@ export type CutleryProduct = {
 
 export const strawProducts: StrawProduct[] = [
   {
-    id: 'paper-wrapped-paper-straws',
-    title: 'PAPER WRAPPED PAPER STRAWS',
-    image: IMG.paperWrappedStraws,
+    id: 'artistic-straws',
+    title: 'Artistic Straws',
+    image: IMG.artisticStraw,
     specifications: [
-      'Material: PP injection food grade',
-      'Shape: Flexible straws',
-      'Color: Various colors available',
-      'Size: 6mm diameter; lengths 210mm, 230mm, 280mm',
-      'Categories: Paper straw, straws'
+      'Decorative drinking straws for premium beverage presentation',
+      'Suitable for cafes, restaurants, and event service',
+      'Available in multiple colors and printed patterns'
+    ],
+    type: 'Artistic',
+    material: 'Plastic (food-grade)',
+    wrapType: 'Unwrapped',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Straight',
+    color: 'Various colors'
+  },
+  {
+    id: 'spoon-straws',
+    title: 'Spoon Straws',
+    image: IMG.spoonStraw,
+    specifications: [
+      'Designed for desserts, slush, and thick drinks',
+      'Integrated spoon tip for scoop-and-sip use',
+      'Food-grade material with assorted color options'
+    ],
+    type: 'Spoon',
+    material: 'Plastic (food-grade)',
+    wrapType: 'Unwrapped',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Spoon',
+    color: 'Various colors'
+  },
+  {
+    id: 'paper-straws',
+    title: 'Paper Straws',
+    image: IMG.paperStraw,
+    specifications: [
+      'Biodegradable paper straws for eco-focused foodservice',
+      'Compatible with cold beverages and takeaway service',
+      'Available in striped and solid color styles'
+    ],
+    type: 'Paper',
+    material: 'Paper',
+    wrapType: 'Unwrapped',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Straight',
+    color: 'Various colors'
+  },
+  {
+    id: 'paper-wrapped-straws',
+    title: 'Paper Wrapped Straws',
+    image: IMG.paperWrappedStraw,
+    specifications: [
+      'Individually wrapped in paper for hygienic service',
+      'Best fit for dine-in, delivery, and takeaway',
+      'Available in multiple sizes and color variants'
     ],
     type: 'Paper Wrapped',
-    material: 'PP (food-grade)',
+    material: 'Plastic (food-grade)',
     wrapType: 'Paper wrapped',
-    diameter: '6mm',
-    length: '210mm / 230mm / 280mm',
-    style: 'Flexible',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Straight',
     color: 'Various colors'
   },
   {
-    id: 'shakes-smoothies-straws',
-    title: 'SHAKES & SMOOTHIES STRAWS (6MM, 8MM & 10MM)',
-    image: IMG.shakesSmoothiesStraws,
+    id: 'opp-wrapped-straws',
+    title: 'OPP Wrapped Straws',
+    image: IMG.oppWrappedStraw,
     specifications: [
-      'Material: PP injection food grade',
-      'Shape: Flexible straws',
-      'Color: Various colors available',
-      'Size: 6mm, 8mm & 10mm options; lengths 210mm, 230mm, 280mm',
-      'Categories: Paper straw, straws'
+      'Individually wrapped with OPP film for hygiene',
+      'Clear wrapping keeps products visible for retail',
+      'Suitable for restaurants, cafes, and beverage brands'
     ],
-    type: 'Shakes & Smoothies',
-    material: 'PP (food-grade)',
-    wrapType: 'Various',
-    diameter: '6mm / 8mm / 10mm',
-    length: '210mm / 230mm / 280mm',
-    style: 'Flexible',
+    type: 'OPP Wrapped',
+    material: 'Plastic (food-grade)',
+    wrapType: 'OPP wrapped',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Straight',
     color: 'Various colors'
   },
   {
-    id: 'tetra-u-shape-4mm-paper-straw',
-    title: 'Tetra U-Shape 4mm Paper Straw',
-    image: IMG.tetraUShape,
+    id: 'tetra-u-shape-paper-straws',
+    title: 'Tetra U-Shape Paper Straws',
+    image: IMG.tetraUShapePaperStraw,
     specifications: [
-      'Material: PP injection food-grade with BOPP film',
-      'Shape: Flexible U-shape',
-      'Colors: Multiple',
-      'Sizes: 4mm × 120mm / 140mm',
-      'Packaging: 20,000 straws per carton',
-      'Suitable for: 125ml, 200ml, and 250ml juice boxes',
-      'Highlights: Air-tight fit, hygienic wrapping, easy usability'
+      'Also known as Tetra Pack U-Shape Straws',
+      'Made for juice and milk carton packs',
+      'U-shape profile for easy puncture and sipping'
     ],
     type: 'Tetra U-Shape',
-    material: 'PP + BOPP',
-    wrapType: 'Film pack',
+    material: 'Paper',
+    wrapType: 'Wrapped',
     diameter: '4mm',
     length: '120mm / 140mm',
     style: 'U-Shape',
     color: 'Multiple'
   },
   {
-    id: 'plastic-biodegradable-straws',
-    title: 'PLASTIC BIODEGRADEABLE STRAWS',
-    image: IMG.plasticBiodegradableStraws,
+    id: 'straight-straws',
+    title: 'Straight Straws',
+    image: IMG.straightStraw,
     specifications: [
-      'Product family includes: flexible bend straws, straight straws, spoon straws',
-      'Also available: paper & OPP wrapped straws, artistic straws',
-      'Food-grade materials; options across diameters and lengths per line',
-      'Ideal for beverage brands, foodservice, and retail packaging programs'
+      'Classic straight straw design for regular beverages',
+      'Common for soft drinks, juices, and water',
+      'Food-grade and available in assorted colors'
     ],
-    type: 'Plastic Biodegradable',
-    material: 'Biodegradable plastic',
-    wrapType: 'Various',
+    type: 'Straight',
+    material: 'Plastic (food-grade)',
+    wrapType: 'Unwrapped',
     diameter: 'Multiple',
     length: 'Multiple',
-    style: 'Straight / Flexible / Spoon',
+    style: 'Straight',
+    color: 'Various colors'
+  },
+  {
+    id: 'flexible-straws',
+    title: 'Flexible Straws',
+    image: IMG.flexibleStraw,
+    specifications: [
+      'Flexible neck section for comfort and control',
+      'Suitable for children and hospital or care use',
+      'Available in mixed colors and bulk packs'
+    ],
+    type: 'Flexible',
+    material: 'Plastic (food-grade)',
+    wrapType: 'Unwrapped',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Flexible',
+    color: 'Various colors'
+  },
+  {
+    id: 'flexible-bend-straws',
+    title: 'Flexible Bend Straws',
+    image: IMG.flexibleBendStraw,
+    specifications: [
+      'Corrugated bend section for angled sipping',
+      'Durable structure for hot and cold drinks',
+      'Preferred in beverage service and food chains'
+    ],
+    type: 'Flexible Bend',
+    material: 'Plastic (food-grade)',
+    wrapType: 'Unwrapped',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Flexible',
+    color: 'Various colors'
+  },
+  {
+    id: 'stir-sipper-straw',
+    title: 'Stir Sipper Straw',
+    image: IMG.stirSipperStraw,
+    specifications: [
+      'Dual-use design for stirring and sipping',
+      'Popular for coffee, cocktails, and cold drinks',
+      'Compact profile for takeaway cups'
+    ],
+    type: 'Stir Sipper',
+    material: 'Plastic (food-grade)',
+    wrapType: 'Unwrapped',
+    diameter: 'Multiple',
+    length: 'Multiple',
+    style: 'Stir',
+    color: 'Various colors'
+  },
+  {
+    id: 'bubble-tea-straws',
+    title: 'Bubble Tea Straws',
+    image: IMG.bubbleTeaStraw,
+    specifications: [
+      'Wide diameter designed for tapioca pearls',
+      'Strong wall thickness for thick beverages',
+      'Suitable for bubble tea and smoothies'
+    ],
+    type: 'Bubble Tea',
+    material: 'Plastic (food-grade)',
+    wrapType: 'Unwrapped',
+    diameter: '12mm',
+    length: 'Multiple',
+    style: 'Straight',
     color: 'Various colors'
   }
 ];
@@ -237,12 +350,24 @@ export const cutleryProducts: CutleryProduct[] = [
 ];
 
 export const strawSubFilters = {
-  Type: ['Paper Wrapped', 'Shakes & Smoothies', 'Tetra U-Shape', 'Plastic Biodegradable'],
-  Material: ['PP (food-grade)', 'PP + BOPP', 'Biodegradable plastic'],
-  'Wrap Type': ['Paper wrapped', 'Various', 'Film pack'],
-  Diameter: ['4mm', '6mm', '6mm / 8mm / 10mm', 'Multiple'],
-  Length: ['120mm / 140mm', '210mm / 230mm / 280mm', 'Multiple'],
-  Style: ['Flexible', 'U-Shape', 'Straight / Flexible / Spoon'],
+  Type: [
+    'Artistic',
+    'Spoon',
+    'Paper',
+    'Paper Wrapped',
+    'OPP Wrapped',
+    'Tetra U-Shape',
+    'Straight',
+    'Flexible',
+    'Flexible Bend',
+    'Stir Sipper',
+    'Bubble Tea'
+  ],
+  Material: ['Paper', 'Plastic (food-grade)'],
+  'Wrap Type': ['Unwrapped', 'Paper wrapped', 'OPP wrapped', 'Wrapped'],
+  Diameter: ['4mm', '12mm', 'Multiple'],
+  Length: ['120mm / 140mm', 'Multiple'],
+  Style: ['Straight', 'Flexible', 'Spoon', 'U-Shape', 'Stir'],
   Color: ['Various colors', 'Multiple']
 } as const;
 
