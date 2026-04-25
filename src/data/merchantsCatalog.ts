@@ -2,7 +2,7 @@ const IMG = {
   artisticStraw: '/straws/artistic-straw.png',
   spoonStraw: '/straws/Spoon-Straw.png',
   paperStraw: '/straws/paper-straw.png',
-  paperWrappedStraw: '/straws/paper-straw.png',
+  paperWrappedStraw: '/straws/paper-wrapped-staw.png',
   oppWrappedStraw: '/straws/oop-staw rapped.png',
   tetraUShapePaperStraw: '/straws/tera-pack-u.png',
   straightStraw: '/straws/straight-straw.png',
