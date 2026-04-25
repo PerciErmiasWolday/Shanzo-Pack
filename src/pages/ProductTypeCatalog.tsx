@@ -127,7 +127,7 @@ export default function ProductTypeCatalog() {
               </div>
             ) : (
               <div className="grid gap-9 lg:grid-cols-[240px,minmax(0,1fr)] items-start">
-                <aside className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm sticky top-[110px] self-start text-sm">
+                <aside className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm self-start text-sm lg:sticky lg:top-[110px] lg:z-10">
                   <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-gray-100">
                     <SlidersHorizontal className="h-4.5 w-4.5 text-[#0F4C81]" />
                     <p className="text-sm font-semibold text-[#2A2A2A]">Filters</p>
